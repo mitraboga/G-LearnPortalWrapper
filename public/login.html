@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GLearn Portal | Login</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/script.js" defer></script>
+  </head>
+  <body class="login-body" data-page="login">
+    <main class="login-layout">
+      <section class="login-card">
+        <p class="eyebrow">GLearn Portal</p>
+        <h1>Student Login</h1>
+        <p class="lead">
+          Sign in with a student account stored in your MySQL database.
+        </p>
+
+        <div class="notice notice-info">
+          Fresh setup: run
+          <code>npm run create-student -- --username yourid --password YourPass123 --name "Student Name" --department "CSE"</code>
+        </div>
+
+        <div id="loginMessage" class="notice hidden" role="alert"></div>
+
+        <form class="login-form" data-login-form action="/login" method="post">
+          <label for="username">Username</label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            autocomplete="username"
+            placeholder="Enter your username"
+            required
+          />
+
+          <label for="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            placeholder="Enter your password"
+            required
+          />
+
+          <button type="submit" data-submit-button>Log In</button>
+        </form>
+      </section>
+
+      <aside class="feature-card">
+        <p class="eyebrow">Portal Overview</p>
+        <h2>Everything important in one place.</h2>
+        <ul class="feature-list">
+          <li>Track enrolled courses and schedules</li>
+          <li>Read the latest campus announcements</li>
+          <li>Review attendance percentages by subject</li>
+          <li>Check marks and overall performance</li>
+        </ul>
+      </aside>
+    </main>
+  </body>
+</html>

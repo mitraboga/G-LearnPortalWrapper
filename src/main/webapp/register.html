@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html class="h-full" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | My-GITAM Portal</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              background: "#f8fafb",
+              "on-primary-fixed-variant": "#004f4f",
+              "surface-container-low": "#f2f4f5",
+              "on-secondary-container": "#4e6874",
+              "surface-container-high": "#e6e8e9",
+              "on-primary-fixed": "#002020",
+              "secondary-fixed": "#cbe7f5",
+              "primary-fixed": "#a2f0ef",
+              "on-error-container": "#93000a",
+              "on-surface-variant": "#3f4948",
+              "surface-variant": "#e1e3e4",
+              secondary: "#48626e",
+              "secondary-container": "#cbe7f5",
+              "tertiary-container": "#8f4800",
+              "inverse-on-surface": "#eff1f2",
+              outline: "#6f7979",
+              "on-tertiary-fixed-variant": "#713700",
+              "primary-fixed-dim": "#86d4d3",
+              "on-tertiary-fixed": "#301400",
+              surface: "#f8fafb",
+              "surface-container-highest": "#e1e3e4",
+              "surface-bright": "#f8fafb",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed": "#ffdcc5",
+              "on-background": "#191c1d",
+              "inverse-primary": "#86d4d3",
+              "on-secondary": "#ffffff",
+              "on-tertiary-container": "#ffc8a4",
+              "on-secondary-fixed": "#021f29",
+              "on-primary-container": "#93e1e0",
+              "surface-container": "#eceeef",
+              "outline-variant": "#bec9c8",
+              "secondary-fixed-dim": "#afcbd8",
+              "inverse-surface": "#2e3132",
+              primary: "#004c4c",
+              "tertiary-fixed-dim": "#ffb783",
+              "surface-tint": "#096969",
+              "surface-container-lowest": "#ffffff",
+              "primary-container": "#006666",
+              tertiary: "#6c3500",
+              "error-container": "#ffdad6",
+              "on-secondary-fixed-variant": "#304a55",
+              "on-primary": "#ffffff",
+              "surface-dim": "#d8dadb",
+              "on-surface": "#191c1d",
+              error: "#ba1a1a",
+              "on-error": "#ffffff",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Manrope", "sans-serif"],
+              body: ["Inter", "sans-serif"],
+              label: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Manrope", sans-serif;
+      }
+
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+
+      .bg-teal-gradient {
+        background: linear-gradient(135deg, #004c4c 0%, #006666 100%);
+      }
+
+      .glass-shadow {
+        box-shadow: 0 24px 48px -12px rgba(25, 28, 29, 0.08);
+      }
+    </style>
+    <script>
+      function initRegistrationPage() {
+        const params = new URLSearchParams(window.location.search);
+        const error = params.get("error");
+        const messageNode = document.getElementById("formMessage");
+
+        if (error && messageNode) {
+          messageNode.textContent = error;
+          messageNode.className =
+            "mb-6 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-medium text-rose-700";
+        }
+      }
+
+      function validateRegistrationForm() {
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+        const messageNode = document.getElementById("formMessage");
+
+        if (password !== confirmPassword) {
+          messageNode.textContent = "Password and Confirm Password must match.";
+          messageNode.className =
+            "mb-6 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-medium text-rose-700";
+          return false;
+        }
+
+        messageNode.textContent = "";
+        messageNode.className = "hidden";
+        return true;
+      }
+
+      function resetMessage() {
+        const messageNode = document.getElementById("formMessage");
+        messageNode.textContent = "";
+        messageNode.className = "hidden";
+      }
+    </script>
+  </head>
+
+  <body class="h-full bg-background" onload="initRegistrationPage()">
+    <main class="flex min-h-full w-full">
+      <section
+        class="relative hidden flex-1 flex-col overflow-hidden bg-teal-gradient p-12 lg:flex"
+      >
+        <div
+          class="pointer-events-none absolute inset-0 opacity-10 mix-blend-soft-light"
+          style="
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuATb7-hqbZ1fEmfOXresh5fDGiNz8T2i0Ck0yr3Nnk1PqZpHv8rWrdpMkkTCuzl_TJZvculf0PMuyc6iYb-djR1rPYr-VGt1VHl63jaPltn6p7xNvov7EZrEHIG2MCDzN4Uc7OvmFvgE5s96HBa6mGN_1TQk7HyZ-9etUkC2v4_B-yaAWM8BMpF9g05z_DogmoZg7HegmNFvPEb6t5ZkwyRmZoAs3ESkwYWr4HIhnEJQ3ysoFgl1U-tYiuczF4Adgq9PI_UlmdSTh8');
+          "
+        ></div>
+
+        <header class="relative z-10">
+          <h1 class="mb-2 text-4xl font-extrabold tracking-tight text-white">
+            My-GITAM
+          </h1>
+          <div class="h-1 w-12 bg-primary-fixed"></div>
+        </header>
+
+        <div class="relative z-10 flex flex-1 items-center">
+          <div class="max-w-2xl">
+            <p class="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-teal-100/60">
+              Student Onboarding
+            </p>
+            <h2 class="text-5xl font-extrabold leading-tight text-white">
+              Create your G-Learn portal access.
+            </h2>
+            <p class="mt-6 max-w-xl text-lg leading-relaxed text-teal-100/80">
+              Register once with your Roll No. / Username and your details will be
+              stored in MySQL so you can log in and view your courses, grades,
+              SGPA, CGPA, and attendance records through the servlet portal.
+            </p>
+
+            <div class="mt-10 grid max-w-2xl gap-5 sm:grid-cols-2">
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-md">
+                <div class="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-white">
+                  <span class="material-symbols-outlined">badge</span>
+                </div>
+                <h3 class="text-lg font-bold text-white">Identity First</h3>
+                <p class="mt-2 text-sm leading-relaxed text-teal-100/75">
+                  Your Roll No. / Username becomes the login ID for the portal.
+                </p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-md">
+                <div class="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-white">
+                  <span class="material-symbols-outlined">database</span>
+                </div>
+                <h3 class="text-lg font-bold text-white">Database Ready</h3>
+                <p class="mt-2 text-sm leading-relaxed text-teal-100/75">
+                  Registration creates your student profile and portal records in
+                  MySQL.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="relative z-10 text-xs font-medium uppercase tracking-widest text-teal-100/40">
+          Academic Management Portal © 2026 GITAM University
+        </footer>
+      </section>
+
+      <section class="flex w-full items-center justify-center bg-white p-6 lg:w-[700px] lg:p-10">
+        <div class="w-full max-w-2xl">
+          <div class="mb-8 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+              <div
+                class="glass-shadow flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-container text-white"
+              >
+                <img
+                  src="/university_logo.png"
+                  alt="University Logo"
+                  class="h-10 w-10 object-contain"
+                />
+              </div>
+              <div>
+                <p class="text-xs font-bold uppercase tracking-[0.25em] text-primary">
+                  G-Learn Registration
+                </p>
+                <h2 class="text-3xl font-extrabold text-on-surface">
+                  Create Student Account
+                </h2>
+              </div>
+            </div>
+            <a
+              href="/login.html"
+              class="hidden rounded-xl border border-primary/10 bg-white px-4 py-2 text-sm font-bold text-primary shadow-sm transition-colors hover:bg-teal-50 sm:inline-flex"
+            >
+              Back to Login
+            </a>
+          </div>
+
+          <p class="mb-6 text-sm font-medium leading-relaxed text-on-surface-variant">
+            Fill in your student details below. Your account will be stored in the
+            portal database and used for future login.
+          </p>
+
+          <div id="formMessage" class="hidden"></div>
+
+          <form
+            action="/register"
+            method="post"
+            onsubmit="return validateRegistrationForm()"
+            onreset="resetMessage()"
+            class="space-y-6"
+          >
+            <div class="grid gap-5 md:grid-cols-2">
+              <label class="block">
+                <span class="mb-2 block text-xs font-bold uppercase tracking-widest text-primary">
+                  First Name
+                </span>
+                <input
+                  id="firstName"
+                  name="firstName"
+                  type="text"
+                  required
+                  class="w-full rounded-xl border border-outline-variant px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-primary"
+                />
+              </label>
+
+              <label class="block">
+                <span class="mb-2 block text-xs font-bold uppercase tracking-widest text-primary">
+                  Last Name
+                </span>
+                <input
+                  id="lastName"
+                  name="lastName"
+                  type="text"
+                  required
+                  class="w-full rounded-xl border border-outline-variant px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-primary"
+                />
+              </label>
+
+              <label class="block md:col-span-2">
+                <span class="mb-2 block text-xs font-bold uppercase tracking-widest text-primary">
+                  Roll No. / Username
+                </span>
+                <input
+                  id="username"
+                  name="username"
+                  type="text"
+                  required
+                  class="w-full rounded-xl border border-outline-variant px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-primary"
+                />
+              </label>
+
+              <label class="block">
+                <span class="mb-2 block text-xs font-bold uppercase tracking-widest text-primary">
+                  Mobile No.
+                </span>
+                <input
+                  id="mobileNo"
+                  name="mobileNo"
+                  type="tel"
+                  required
+                  class="w-full rounded-xl border border-outline-variant px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-primary"
+                />
+              </label>
+
+              <label class="block">
+                <span class="mb-2 block text-xs font-bold uppercase tracking-widest text-primary">
+                  Date of Birth
+                </span>
+                <input
+                  id="dateOfBirth"
+                  name="dateOfBirth"
+                  type="date"
+                  required
+                  class="w-full rounded-xl border border-outline-variant px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-primary"
+                />
+              </label>
+
+              <label class="block md:col-span-2">
+                <span class="mb-2 block text-xs font-bold uppercase tracking-widest text-primary">
+                  Email ID
+                </span>
+                <input
+                  id="emailId"
+                  name="emailId"
+                  type="email"
+                  required
+                  class="w-full rounded-xl border border-outline-variant px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-primary"
+                />
+              </label>
+
+              <label class="block">
+                <span class="mb-2 block text-xs font-bold uppercase tracking-widest text-primary">
+                  Password
+                </span>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  required
+                  class="w-full rounded-xl border border-outline-variant px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-primary"
+                />
+              </label>
+
+              <label class="block">
+                <span class="mb-2 block text-xs font-bold uppercase tracking-widest text-primary">
+                  Confirm Password
+                </span>
+                <input
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  type="password"
+                  required
+                  class="w-full rounded-xl border border-outline-variant px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-primary"
+                />
+              </label>
+
+              <label class="block">
+                <span class="mb-2 block text-xs font-bold uppercase tracking-widest text-primary">
+                  Age
+                </span>
+                <input
+                  id="age"
+                  name="age"
+                  type="number"
+                  required
+                  class="w-full rounded-xl border border-outline-variant px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-primary"
+                />
+              </label>
+
+              <fieldset class="block">
+                <legend class="mb-2 block text-xs font-bold uppercase tracking-widest text-primary">
+                  Gender
+                </legend>
+                <div class="flex flex-wrap gap-3 rounded-xl border border-outline-variant p-3">
+                  <label class="inline-flex items-center gap-2 text-sm font-medium text-on-surface">
+                    <input id="genderMale" type="radio" name="gender" value="Male" required class="text-primary focus:ring-primary" />
+                    <span>Male</span>
+                  </label>
+                  <label class="inline-flex items-center gap-2 text-sm font-medium text-on-surface">
+                    <input id="genderFemale" type="radio" name="gender" value="Female" class="text-primary focus:ring-primary" />
+                    <span>Female</span>
+                  </label>
+                  <label class="inline-flex items-center gap-2 text-sm font-medium text-on-surface">
+                    <input id="genderOther" type="radio" name="gender" value="Other" class="text-primary focus:ring-primary" />
+                    <span>Other</span>
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="flex flex-col gap-3 pt-2 sm:flex-row">
+              <button
+                type="submit"
+                class="flex flex-1 items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 font-bold text-white shadow-lg shadow-primary/20 transition-colors hover:bg-primary-container"
+              >
+                <span class="material-symbols-outlined text-lg">how_to_reg</span>
+                Submit Registration
+              </button>
+              <button
+                type="reset"
+                class="flex items-center justify-center gap-2 rounded-xl border border-outline-variant bg-surface-container-low px-5 py-3 font-bold text-on-surface transition-colors hover:bg-surface-container"
+              >
+                <span class="material-symbols-outlined text-lg">restart_alt</span>
+                Reset
+              </button>
+            </div>
+          </form>
+
+          <div class="mt-8 border-t border-surface-container-high pt-6 text-center sm:text-left">
+            <p class="text-sm text-on-surface-variant">
+              Already registered?
+              <a href="/login.html" class="font-bold text-primary hover:underline">
+                Go to login
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

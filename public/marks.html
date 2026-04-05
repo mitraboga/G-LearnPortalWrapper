@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GLearn Portal | Marks</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/script.js" defer></script>
+  </head>
+  <body data-page="marks">
+    <div class="app-layout">
+      <aside class="sidebar">
+        <div>
+          <p class="eyebrow">GLearn Portal</p>
+          <h2 class="sidebar-title">Marks</h2>
+          <p class="sidebar-copy">Assessment totals and current grade standing.</p>
+        </div>
+
+        <nav class="nav-list">
+          <a href="/dashboard" data-nav-link="dashboard">Dashboard</a>
+          <a href="/attendance" data-nav-link="attendance">Attendance</a>
+          <a href="/marks" data-nav-link="marks">Marks</a>
+        </nav>
+
+        <button class="secondary-button" type="button" data-logout>
+          Log Out
+        </button>
+      </aside>
+
+      <main class="page-content">
+        <header class="hero">
+          <div>
+            <p class="eyebrow">Academic Performance</p>
+            <h1 class="js-user-name">Student</h1>
+            <p class="lead">
+              Monitor internal assessments and your semester grade trend.
+            </p>
+          </div>
+          <div class="hero-chip js-today"></div>
+        </header>
+
+        <section class="summary-grid" data-marks-summary></section>
+
+        <section class="panel">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Results</p>
+              <h2>Marks by Course</h2>
+            </div>
+          </div>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Course</th>
+                  <th>Assignment</th>
+                  <th>Midterm</th>
+                  <th>Final</th>
+                  <th>Total</th>
+                  <th>Grade</th>
+                </tr>
+              </thead>
+              <tbody data-marks-body></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

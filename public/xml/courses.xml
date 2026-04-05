@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<courses>
+  <course code="CS101">
+    <title>Programming Fundamentals</title>
+    <instructor>Dr. Anita Rao</instructor>
+    <schedule>Mon and Wed, 10:00 AM</schedule>
+    <credits>4</credits>
+    <attendance>92</attendance>
+    <grade>A</grade>
+  </course>
+  <course code="MA201">
+    <title>Discrete Mathematics</title>
+    <instructor>Prof. Rahul Sen</instructor>
+    <schedule>Tue and Thu, 11:30 AM</schedule>
+    <credits>3</credits>
+    <attendance>88</attendance>
+    <grade>A-</grade>
+  </course>
+  <course code="EC105">
+    <title>Communication Skills</title>
+    <instructor>Ms. Priya Nair</instructor>
+    <schedule>Fri, 09:00 AM</schedule>
+    <credits>2</credits>
+    <attendance>95</attendance>
+    <grade>A</grade>
+  </course>
+  <course code="UI210">
+    <title>User Interface Design</title>
+    <instructor>Mr. Vinay Kulkarni</instructor>
+    <schedule>Mon and Thu, 02:00 PM</schedule>
+    <credits>3</credits>
+    <attendance>84</attendance>
+    <grade>B+</grade>
+  </course>
+</courses>

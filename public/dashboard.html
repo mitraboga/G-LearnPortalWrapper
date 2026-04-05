@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GLearn Portal | Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/script.js" defer></script>
+  </head>
+  <body data-page="dashboard">
+    <div class="app-layout">
+      <aside class="sidebar">
+        <div>
+          <p class="eyebrow">GLearn Portal</p>
+          <h2 class="sidebar-title">Student Hub</h2>
+          <p class="sidebar-copy">Quick access to your academic workspace.</p>
+        </div>
+
+        <nav class="nav-list">
+          <a href="/dashboard" data-nav-link="dashboard">Dashboard</a>
+          <a href="/attendance" data-nav-link="attendance">Attendance</a>
+          <a href="/marks" data-nav-link="marks">Marks</a>
+        </nav>
+
+        <button class="secondary-button" type="button" data-logout>
+          Log Out
+        </button>
+      </aside>
+
+      <main class="page-content">
+        <header class="hero">
+          <div>
+            <p class="eyebrow">Welcome back</p>
+            <h1 class="js-user-name">Student</h1>
+            <p class="lead">
+              Your portal is ready with the latest course and campus updates.
+            </p>
+          </div>
+          <div class="hero-chip js-today"></div>
+        </header>
+
+        <section class="summary-grid" data-summary-cards></section>
+
+        <section class="panel">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Courses</p>
+              <h2>This Semester</h2>
+            </div>
+          </div>
+          <div class="card-grid" data-course-list></div>
+        </section>
+
+        <section class="panel">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Announcements</p>
+              <h2>Latest Updates</h2>
+            </div>
+          </div>
+          <div class="announcement-list" data-announcement-list></div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

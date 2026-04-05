@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<announcements>
+  <announcement priority="high">
+    <title>Mid-Semester Assessments Start on April 22</title>
+    <date>2026-04-22</date>
+    <description>
+      Carry your ID card and arrive at the exam hall at least 15 minutes early.
+    </description>
+  </announcement>
+  <announcement priority="medium">
+    <title>Library Portal Maintenance Window</title>
+    <date>2026-04-11</date>
+    <description>
+      The digital library system will be unavailable from 7:00 PM to 9:00 PM.
+    </description>
+  </announcement>
+  <announcement priority="medium">
+    <title>Project Review Submissions Close This Friday</title>
+    <date>2026-04-09</date>
+    <description>
+      Upload your final presentation deck and source files before 5:00 PM.
+    </description>
+  </announcement>
+</announcements>
