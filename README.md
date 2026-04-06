@@ -25,7 +25,7 @@
 
 ---
 
-## 📖 Project Overview
+<h2 align="center">📖 Project Overview</h2>
 
 **GLearnPortalWrapper** is a **full-stack academic portal system** inspired by GITAM University's G-Learn platform, designed as an end-to-end web application integrating:
 
@@ -39,7 +39,7 @@ The system enables students to **register, authenticate, and access personalized
 
 ---
 
-## 🎯 Problem Statement
+<h2 align="center">🎯 Problem Statement</h2>
 
 Build a **complete G-Learn portal wrapper** that goes beyond static UI by integrating:
 
@@ -51,7 +51,7 @@ Build a **complete G-Learn portal wrapper** that goes beyond static UI by integr
 
 ---
 
-## 🧠 Architecture Evolution
+<h2 align="center">🧠 Architecture Evolution</h2>
 
 ### ❌ Initial Approach
 - JSP + XAMPP + Tomcat  
@@ -69,7 +69,7 @@ Build a **complete G-Learn portal wrapper** that goes beyond static UI by integr
 
 ---
 
-## 🏗️ System Architecture
+<h2 align="center">🏗️ System Architecture</h2> 
 
 ```
 Frontend (HTML/CSS/JS)
@@ -81,7 +81,7 @@ Database (MySQL via JDBC)
 
 ---
 
-## ⚡ Technology Stack
+<h2 align="center">⚡ Technology Stack</h2>  
 
 - **Frontend:** HTML, CSS, JavaScript  
 - **Backend:** Java Servlets, Tomcat  
@@ -115,7 +115,7 @@ https://mitraboga.github.io/G-LearnPortalWrapper/
 
 ---
 
-## 🚀 Future Scope
+<h2 align="center">🚀 Future Scope</h2>   
 
 - Faculty dashboards  
 - Role-based access  
@@ -125,7 +125,7 @@ https://mitraboga.github.io/G-LearnPortalWrapper/
 
 ---
 
-## 🛠️ How to Run
+<h2 align="center">🛠️ How to Run</h2>
 
 ```bash
 git clone https://github.com/your-username/GLearnPortalWrapper.git
@@ -145,7 +145,7 @@ http://localhost:8080/
 
 ---
 
-## 🔥 How the Web App Works (End-to-End Flow)
+<h2 align="center">🔥 How the Web App Works (End-to-End Flow)</h2>
 
 ### 1️⃣ User Registration
 
@@ -182,7 +182,7 @@ http://localhost:8080/
   <img src="assets/new_user_dashboard.png" width="100%" />
 </p>
 
-- After login, user is redirected to dashboard
+- After login, the user is redirected to the dashboard
 - Displays:
   - SGPA / CGPA  
   - Course grades  
@@ -216,7 +216,7 @@ http://localhost:8080/
 
 ---
 
-## 🧾 Database Design
+<h2 align="center">🧾 Database Design</h2> 
 
 - Normalized relational schema  
 - One-to-many relationship (Student → Courses)  
@@ -225,7 +225,7 @@ http://localhost:8080/
 
 ---
 
-## 🔐 Core Features
+<h2 align="center">🔐 Core Features</h2> 
 
 - Registration system  
 - Secure login (session-based)  
@@ -237,7 +237,7 @@ http://localhost:8080/
 
 ---
 
-## 🚧 Challenges Faced
+<h2 align="center">🚧 Challenges Faced</h2>  
 
 - Transitioning from JSP → Servlets  
 - Integrating multiple technologies  
@@ -246,7 +246,8 @@ http://localhost:8080/
 
 ---
 
-## 📊 Key Outcomes
+<h2 align="center">📊 Key Outcomes</h2>  
+
 
 - Built a **true full-stack system**  
 - Implemented **3-tier architecture**  
@@ -255,13 +256,13 @@ http://localhost:8080/
 
 ---
 
-## 📚 Key Learning Outcomes
+<h2 align="center">📚 Key Learning Outcomes</h2>   
 
 - Full-stack = **integration of layers**  
 - Servlets are powerful when structured properly  
 - JDBC gives direct DB control  
 - MySQL is ideal for structured systems  
-- XML still useful in Java ecosystems  
+- XML is still useful in Java ecosystems  
 
 ---
 
