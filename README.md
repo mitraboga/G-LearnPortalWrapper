@@ -10,68 +10,57 @@
   <img src="https://img.shields.io/badge/Status-Full%20Stack-brightgreen" />
 </p>
 
+<p align="center">
+  <img src="assets/GLearn_Wrapper_Preview.gif" width="90%" alt="GLearn Portal Preview"/>
+</p>
+
 ---
 
 ## 📖 Project Overview
 
-Modern university portals are not just websites — they are **complete information systems**.
+**GLearnPortalWrapper** is a **full-stack academic portal system** inspired by GITAM University's G-Learn platform, designed as an end-to-end web application integrating:
 
-**GLearnPortalWrapper** is a **full-stack academic portal system** inspired by GITAM University's G-Learn platform, designed and implemented as part of a Web Application Development case study.
-
-This project demonstrates **end-to-end integration** of:
-
-- Frontend (HTML, CSS, JavaScript)
-- Backend (Java Servlets)
-- Database (MySQL with JDBC)
-- Deployment (Apache Tomcat)
-- Data exchange (XML)
+- HTML, CSS, JavaScript (Frontend)
+- Java Servlets (Backend)
+- MySQL + JDBC (Database)
+- Apache Tomcat (Server)
+- XML (Configuration + Data exchange)
 
 The system enables students to **register, authenticate, and access personalized academic data**, including grades, SGPA/CGPA, and attendance — all backed by a persistent relational database.
-
-📄 Full case study report: :contentReference[oaicite:0]{index=0}
 
 ---
 
 ## 🎯 Problem Statement
 
-The objective was to build a **functional wrapper of the G-Learn portal** that:
+Build a **complete G-Learn portal wrapper** that goes beyond static UI by integrating:
 
-- Supports **student registration and login**
-- Displays **course grades, SGPA, CGPA**
-- Provides a **dedicated attendance module**
-- Uses **MySQL for persistent storage**
-- Integrates **HTML, CSS, JS, XML, Servlets, Tomcat, JDBC**
-
-👉 The key challenge:
-
-> Moving from a **static UI** → to a **fully integrated system** where frontend, backend, and database work together seamlessly.
+- User registration & login  
+- Academic dashboard (SGPA, CGPA, courses)  
+- Grades + attendance modules  
+- Persistent MySQL database  
+- Full-stack integration across all layers  
 
 ---
 
-## 🧠 Evolution of Architecture (Key Highlight)
+## 🧠 Architecture Evolution
 
-### ❌ Initial Approach (Outdated)
-- JSP-based rendering
-- XAMPP + Tomcat setup
-- Eclipse IDE workflow
-- Tight coupling between UI and backend
+### ❌ Initial Approach
+- JSP + XAMPP + Tomcat  
+- Tight coupling between UI and backend  
+- Outdated academic workflow  
 
-### ✅ Final Approach (Production-Aligned)
-- Clean separation of concerns
-- HTML/CSS/JS frontend
-- Java Servlets backend
-- JDBC for database access
-- MySQL for persistence
-- XML for structured data exchange
+### ✅ Final Approach
+- Clean frontend (HTML/CSS/JS)  
+- Java Servlet backend  
+- JDBC-based DB access  
+- MySQL persistence  
+- XML-based configuration & data  
 
-📌 As highlighted in the report (Page 2–3):  
-The shift from JSP-heavy design to a **Servlet + JDBC architecture** improved maintainability and aligned with **modern engineering practices**.
+👉 Result: A **production-aligned architecture** with clear separation of concerns.
 
 ---
 
 ## 🏗️ System Architecture
-
-### 3-Tier Architecture
 
 ```
 Frontend (HTML/CSS/JS)
@@ -81,212 +70,161 @@ Servlet Backend (Java + Tomcat)
 Database (MySQL via JDBC)
 ```
 
-### Layers Explained
-
-#### 🖥️ Presentation Layer
-- HTML pages (Login, Register, Dashboard, Attendance, Grades)
-- Styled with CSS
-- Dynamic updates using JavaScript
-
-#### ⚙️ Application Layer
-- Java Servlets handle:
-  - Authentication
-  - Session management
-  - Data processing
-  - API-like responses
-
-#### 🗄️ Data Layer
-- MySQL database
-- Accessed via JDBC
-- Stores:
-  - Students
-  - Course records
-  - Attendance
-  - Announcements
-
 ---
 
 ## ⚡ Technology Stack
 
-### Frontend
-- HTML5
-- CSS3
-- JavaScript
-
-### Backend
-- Java Servlets
-- Apache Tomcat
-
-### Database
-- MySQL
-- JDBC
-
-### Configuration & Data
-- XML (`web.xml`, data feeds)
+- **Frontend:** HTML, CSS, JavaScript  
+- **Backend:** Java Servlets, Tomcat  
+- **Database:** MySQL, JDBC  
+- **Other:** XML  
 
 ---
 
-## 🔥 Core Features
+## 🔥 How the Web App Works (End-to-End Flow)
 
-### 🔐 Registration Module
-- New users create accounts
-- Stores:
-  - Name, roll number, email, password, etc.
-- Data persisted in MySQL
+### 1️⃣ User Registration
 
----
+<p align="center">
+  <img src="assets/register_new_user.png" width="85%" />
+</p>
 
-### 🔑 Authentication Module
-- Login validation via database
-- Session-based authentication
-- Secure password handling (hashed)
-
----
-
-### 📊 Dashboard Module
-Displays:
-
-- Student profile
-- SGPA & CGPA
-- Semester details
-- Course count
-- Announcements
-- Academic summary
+- New users create an account using the **registration form**
+- Data collected:
+  - Name, Roll No, Email, Password, DOB, etc.
+- On submission:
+  👉 Data is stored in **MySQL (`studentsdb`)**
 
 ---
 
-### 📚 Courses & Grades Module
-Includes:
+### 2️⃣ User Login
 
-- Course code & title
-- Instructor & credits
-- Assignment / Mid / Final marks
-- Total marks & grade
-- Marks update functionality
+<p align="center">
+  <img src="assets/new_user_login.png" width="85%" />
+</p>
+
+- User logs in using:
+  - Roll No / Username  
+  - Password  
+- Backend:
+  - Servlet validates credentials via **JDBC**
+  - Session is created  
 
 ---
 
-### 📈 Attendance Module
-Provides:
+### 3️⃣ Dashboard Access (Grades + Attendance)
 
-- Overall attendance %
-- Course-wise attendance
-- Status indicators
-- Attendance update feature
+<p align="center">
+  <img src="assets/new_user_dashboard.png" width="100%" />
+</p>
+
+- After login, user is redirected to dashboard
+- Displays:
+  - SGPA / CGPA  
+  - Course grades  
+  - Attendance %  
+  - Academic summary  
+
+👉 All data is dynamically fetched from the database
+
+---
+
+### 4️⃣ Database Connectivity (MySQL)
+
+<p align="center">
+  <img src="assets/MySQL_DB_Connectivity.png" width="100%" />
+</p>
+
+- Database: **`studentsdb`**
+- Tables:
+  - `portal_students`
+  - `portal_course_records`
+  - `portal_announcements`
+
+### 🔗 How it works:
+
+1. Registration → stores student data  
+2. Login → fetches user credentials  
+3. Dashboard → retrieves grades + attendance  
+4. Updates → writes back to DB  
+
+👉 JDBC acts as the bridge between **Servlets ↔ MySQL**
 
 ---
 
 ## 🧾 Database Design
 
-### Tables
-
-- `portal_students`
-- `portal_course_records`
-- `portal_announcements`
-
-### Design Highlights
-
-- Normalized schema
-- One-to-many relationships (student → courses)
-- Persistent and scalable structure
+- Normalized relational schema  
+- One-to-many relationship (Student → Courses)  
+- Persistent academic records  
+- Scalable structure  
 
 ---
 
-## 🔗 Use of XML
+## 🔐 Core Features
 
-XML was used meaningfully in:
-
-- `web.xml` for servlet configuration
-- XML-based responses for:
-  - Courses
-  - Announcements
-- Client-side parsing using JavaScript
+- Registration system  
+- Secure login (session-based)  
+- Dashboard with SGPA/CGPA  
+- Courses & grades tracking  
+- Attendance monitoring  
+- Dynamic data rendering  
+- Full DB integration  
 
 ---
 
 ## 🚧 Challenges Faced
 
-### 1. Architecture Transition
-Moving from JSP → Servlets required restructuring the entire system.
-
-### 2. Technology Integration
-Combining:
-- HTML
-- CSS
-- JavaScript
-- XML
-- Servlets
-- JDBC
-- MySQL
-
-👉 The real difficulty was **integration**, not individual tools.
-
-### 3. Session Management
-Ensuring each user only sees **their own data**.
-
-### 4. Data Consistency
-Keeping registration, login, grades, and attendance synced.
+- Transitioning from JSP → Servlets  
+- Integrating multiple technologies  
+- Managing sessions securely  
+- Ensuring data consistency across modules  
 
 ---
 
 ## 📊 Key Outcomes
 
-This project successfully:
-
-- Implements **full-stack architecture**
-- Demonstrates **real-world system design**
-- Enables **dynamic data-driven UI**
-- Uses **persistent database storage**
-- Fulfills all case study requirements
-
-📌 As stated in the report (Page 10):  
-The project shows how **complete web applications are built across layers, not as isolated components**.
+- Built a **true full-stack system**  
+- Implemented **3-tier architecture**  
+- Achieved **end-to-end data flow**  
+- Created a **production-style academic portal**  
 
 ---
 
 ## 📚 Key Learning Outcomes
 
-- Full-stack development = **integration**
-- Servlets remain powerful when used correctly
-- JSP-heavy workflows are outdated for modern systems
-- JDBC provides fine-grained database control
-- MySQL is ideal for structured academic data
-- XML still plays a role in Java-based systems
+- Full-stack = **integration of layers**  
+- Servlets are powerful when structured properly  
+- JDBC gives direct DB control  
+- MySQL is ideal for structured systems  
+- XML still useful in Java ecosystems  
 
 ---
 
 ## 🚀 Future Scope
 
-This system can be extended with:
-
-- 👨‍🏫 Faculty/admin dashboards  
-- 🔐 Role-based access control  
-- 📩 Real-time notifications  
-- 📄 PDF report generation  
-- 📊 Advanced analytics  
-- ☁️ Cloud deployment (AWS/GCP)  
-- 🔄 REST APIs (JSON-based)
+- Faculty dashboards  
+- Role-based access  
+- Real-time notifications  
+- Cloud deployment  
+- REST APIs (JSON-based)  
 
 ---
 
 ## 🛠️ How to Run
 
-### 1. Clone Repo
 ```bash
 git clone https://github.com/your-username/GLearnPortalWrapper.git
 cd GLearnPortalWrapper
 ```
 
-### 2. Setup MySQL
-- Create database
-- Import schema
-- Update credentials in JDBC config
+### Setup
+- Configure MySQL database (`studentsdb`)
+- Update JDBC credentials
 
-### 3. Run on Tomcat
-- Deploy project
-- Start server
-
-### 4. Access
+### Run
+- Deploy on Apache Tomcat  
+- Open:
 ```
 http://localhost:8080/
 ```
@@ -305,6 +243,4 @@ http://localhost:8080/
   </a>
 </p>
 
-Frontend + Backend + Database — working together.
-
-That’s what makes this **full-stack.**
+---
