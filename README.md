@@ -37,8 +37,6 @@
 
 The system enables students to **register, authenticate, and access personalized academic data**, including grades, SGPA/CGPA, and attendance — all backed by a persistent relational database.
 
-📄 Full case study report: :contentReference[oaicite:0]{index=0}
-
 ---
 
 ## 🎯 Problem Statement
