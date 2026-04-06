@@ -1,4 +1,4 @@
-<h1 align="center">🎓 GLearnPortalWrapper</h1>
+<h1 align="center">🎓 G-LearnPortalWrapper 📔</h1>
 <h3 align="center">Full-Stack Academic Portal System • Grades • Attendance • Authentication</h3>
 
 <p align="center">
@@ -7,7 +7,16 @@
   <img src="https://img.shields.io/badge/Database-MySQL-green?logo=mysql" />
   <img src="https://img.shields.io/badge/Server-Tomcat-red" />
   <img src="https://img.shields.io/badge/Architecture-3--Tier-purple" />
-  <img src="https://img.shields.io/badge/Status-Full%20Stack-brightgreen" />
+  <img src="https://img.shields.io/badge/Pattern-MVC-yellow" />
+  <img src="https://img.shields.io/badge/API-Servlet%20Endpoints-teal" />
+  <img src="https://img.shields.io/badge/Database%20Access-JDBC-darkgreen" />
+  <img src="https://img.shields.io/badge/Data%20Format-XML-lightgrey" />
+  <img src="https://img.shields.io/badge/Auth-Session%20Based-critical" />
+  <img src="https://img.shields.io/badge/System-Full%20Stack-brightgreen" />
+  <img src="https://img.shields.io/badge/Domain-Academic%20Portal-blueviolet" />
+  <img src="https://img.shields.io/badge/Use%20Case-Student%20Management-informational" />
+  <img src="https://img.shields.io/badge/CRUD-Operations-success" />
+  <img src="https://img.shields.io/badge/Deployment-Local%20Server-lightblue" />
 </p>
 
 <p align="center">
@@ -234,12 +243,12 @@ http://localhost:8080/
 ## 👤 Author
 
 <p align="center">
-  <b>Mitra Boga</b><br><br>
+  <b>Mitra Boga</b><br>
   <a href="https://www.linkedin.com/in/bogamitra/">
-    <img src="https://img.shields.io/badge/LinkedIn-Mitra%20Boga-blue?style=for-the-badge&logo=linkedin"/>
+    <img src="https://img.shields.io/badge/LinkedIn-bogamitra-blue?logo=linkedin">
   </a>
   <a href="https://x.com/techtraboga">
-    <img src="https://img.shields.io/badge/X-@techtraboga-black?style=for-the-badge&logo=twitter"/>
+    <img src="https://img.shields.io/badge/X-techtraboga-black?logo=x">
   </a>
 </p>
 
