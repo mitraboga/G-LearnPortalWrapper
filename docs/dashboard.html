@@ -1,0 +1,351 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>G-Learn | Academic Dashboard</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-background": "#191c1d",
+              "primary-container": "#006666",
+              "secondary-fixed": "#cbe7f5",
+              "surface-variant": "#e1e3e4",
+              "on-surface-variant": "#3f4948",
+              "on-secondary-fixed": "#021f29",
+              "surface-container": "#eceeef",
+              "surface-container-highest": "#e1e3e4",
+              "on-tertiary-container": "#ffc8a4",
+              "on-error": "#ffffff",
+              "tertiary-container": "#8f4800",
+              "primary-fixed-dim": "#86d4d3",
+              "inverse-surface": "#2e3132",
+              "surface-dim": "#d8dadb",
+              "tertiary-fixed-dim": "#ffb783",
+              "on-tertiary": "#ffffff",
+              "on-surface": "#191c1d",
+              "on-primary-container": "#93e1e0",
+              "on-tertiary-fixed-variant": "#713700",
+              "surface-container-high": "#e6e8e9",
+              "inverse-on-surface": "#eff1f2",
+              primary: "#004c4c",
+              "on-secondary-fixed-variant": "#304a55",
+              "on-secondary-container": "#4e6874",
+              tertiary: "#6c3500",
+              "on-tertiary-fixed": "#301400",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#ffdcc5",
+              "outline-variant": "#bec9c8",
+              "secondary-container": "#cbe7f5",
+              "inverse-primary": "#86d4d3",
+              "surface-tint": "#096969",
+              "error-container": "#ffdad6",
+              secondary: "#48626e",
+              "surface-container-lowest": "#ffffff",
+              error: "#ba1a1a",
+              "on-primary-fixed": "#002020",
+              background: "#f8fafb",
+              outline: "#6f7979",
+              "surface-container-low": "#f2f4f5",
+              surface: "#f8fafb",
+              "secondary-fixed-dim": "#afcbd8",
+              "on-error-container": "#93000a",
+              "on-primary-fixed-variant": "#004f4f",
+              "on-secondary": "#ffffff",
+              "primary-fixed": "#a2f0ef",
+              "surface-bright": "#f8fafb",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Manrope", "sans-serif"],
+              body: ["Inter", "sans-serif"],
+              label: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f8fafb;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Manrope", sans-serif;
+      }
+
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+        vertical-align: middle;
+      }
+    </style>
+    <script src="js/demo.js" defer></script>
+  </head>
+  <body class="bg-background text-on-surface" data-page="dashboard">
+    <header
+      class="fixed left-0 top-0 z-50 flex h-16 w-full items-center justify-between bg-teal-800 px-6 shadow-sm transition-all duration-200"
+    >
+      <div class="flex items-center gap-8">
+        <div class="flex items-start gap-3">
+          <img
+            src="university_logo.png"
+            alt="GITAM logo"
+            class="mt-0.5 h-9 w-9 object-contain"
+          />
+          <span class="mt-1 text-xl font-bold tracking-tight text-white">G-Learn</span>
+        </div>
+        <div
+          class="hidden w-64 items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 md:flex"
+        >
+          <span class="material-symbols-outlined text-sm text-white/70">search</span>
+          <input
+            class="w-full border-none bg-transparent text-sm text-white placeholder:text-white/50 focus:ring-0"
+            placeholder="Search courses..."
+            type="text"
+          />
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="hidden items-center gap-6 px-4 md:flex">
+          <a class="border-b-2 border-white px-3 pb-1 text-white transition-colors" href="dashboard.html">
+            Dashboard
+          </a>
+          <a
+            class="rounded px-3 py-1 text-teal-100/80 transition-colors hover:bg-white/10"
+            href="marks.html"
+          >
+            Courses &amp; Grades
+          </a>
+          <a
+            class="rounded px-3 py-1 text-teal-100/80 transition-colors hover:bg-white/10"
+            href="attendance.html"
+          >
+            Attendance
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a class="rounded-full p-2 text-teal-50 hover:bg-white/10" href="marks.html">
+            <span class="material-symbols-outlined">analytics</span>
+          </a>
+          <button
+            class="rounded-full p-2 text-teal-50 hover:bg-white/10"
+            type="button"
+            data-logout
+            aria-label="Log out"
+          >
+            <span class="material-symbols-outlined">logout</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <aside
+      class="fixed left-0 top-16 z-40 hidden h-[calc(100vh-64px)] w-64 flex-col border-r border-slate-200 bg-slate-50 p-4 md:flex"
+    >
+      <div class="mb-8 px-4">
+        <h2 class="text-lg font-extrabold text-teal-800">CATS/GITAM</h2>
+        <p class="text-xs font-medium uppercase tracking-wide text-slate-500">
+          Academic Portal
+        </p>
+      </div>
+
+      <nav class="space-y-1">
+        <a
+          class="translate-x-1 rounded-lg bg-teal-100 px-4 py-3 font-bold text-teal-800 transition-transform"
+          href="dashboard.html"
+        >
+          <span class="material-symbols-outlined mr-3 text-xl" style="font-variation-settings: 'FILL' 1;">
+            dashboard
+          </span>
+          <span class="text-sm font-semibold">Dashboard</span>
+        </a>
+        <a
+          class="flex items-center gap-3 rounded-lg px-4 py-3 text-slate-600 transition-all hover:bg-slate-200 hover:text-teal-700"
+          href="marks.html"
+        >
+          <span class="material-symbols-outlined text-xl">school</span>
+          <span class="text-sm font-semibold">Courses &amp; Grades</span>
+        </a>
+        <a
+          class="flex items-center gap-3 rounded-lg px-4 py-3 text-slate-600 transition-all hover:bg-slate-200 hover:text-teal-700"
+          href="attendance.html"
+        >
+          <span class="material-symbols-outlined text-xl">fact_check</span>
+          <span class="text-sm font-semibold">Attendance</span>
+        </a>
+        <a
+          class="flex items-center gap-3 rounded-lg px-4 py-3 text-slate-600 transition-all hover:bg-slate-200 hover:text-teal-700"
+          href="register.html"
+        >
+          <span class="material-symbols-outlined text-xl">person_add</span>
+          <span class="text-sm font-semibold">Register</span>
+        </a>
+      </nav>
+
+      <div class="mt-auto rounded-xl bg-surface-container-low p-4">
+        <div class="flex items-center gap-3">
+          <div
+            class="flex h-10 w-10 items-center justify-center rounded-full bg-teal-100 text-teal-800"
+          >
+            <span class="material-symbols-outlined">account_circle</span>
+          </div>
+          <div>
+            <p class="text-xs font-bold text-on-surface js-user-name">Student</p>
+            <p class="text-[10px] text-on-surface-variant">
+              ID: <span class="js-username">student1</span>
+            </p>
+          </div>
+        </div>
+        <button
+          class="mt-4 w-full rounded-lg bg-primary py-2 text-xs font-bold text-white shadow-md"
+          type="button"
+          data-logout
+        >
+          SIGN OUT
+        </button>
+      </div>
+    </aside>
+
+    <main class="min-h-screen bg-surface-container-low pb-24 pt-16 md:pl-64">
+      <div class="mx-auto max-w-7xl p-6 md:p-8">
+        <div class="mb-8">
+          <div class="mb-3 flex items-center gap-2 text-xs font-medium text-on-surface-variant">
+            <span>Dashboard</span>
+            <span class="material-symbols-outlined text-sm">chevron_right</span>
+            <span class="js-current-semester">Current Semester</span>
+            <span class="material-symbols-outlined text-sm">chevron_right</span>
+            <span class="font-bold text-primary">Academic Overview</span>
+          </div>
+          <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+            <div>
+              <h1 class="text-3xl font-extrabold tracking-tight text-primary">
+                Academic Dashboard
+              </h1>
+              <p class="mt-1 font-medium text-on-surface-variant">
+                Welcome back,
+                <span class="js-user-name">Student</span>. Department:
+                <span class="js-department">Computer Science</span>
+              </p>
+            </div>
+            <div class="flex items-center gap-3">
+              <a
+                class="flex items-center gap-2 rounded-xl border border-primary/10 bg-white px-4 py-2 text-sm font-bold text-primary shadow-sm transition-colors hover:bg-teal-50"
+                href="marks.html"
+              >
+                <span class="material-symbols-outlined text-lg">analytics</span>
+                View Grades
+              </a>
+              <a
+                class="flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-bold text-white shadow-lg shadow-primary/20 transition-colors hover:bg-primary-container"
+                href="attendance.html"
+              >
+                <span class="material-symbols-outlined text-lg">fact_check</span>
+                Track Attendance
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <section class="mb-8 grid grid-cols-1 gap-6 md:grid-cols-4" data-dashboard-metrics></section>
+
+        <section class="mb-8 grid grid-cols-1 gap-6 xl:grid-cols-12">
+          <div class="xl:col-span-8">
+            <div class="overflow-hidden rounded-xl border border-transparent bg-surface-container-lowest shadow-sm">
+              <div class="flex items-center justify-between bg-primary-container px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-white">school</span>
+                  <h3 class="text-lg font-bold text-white">Current Semester Courses</h3>
+                </div>
+                <span class="rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white">
+                  Static Demo
+                </span>
+              </div>
+              <div class="grid gap-5 p-6 md:grid-cols-2" data-dashboard-course-list></div>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-6 xl:col-span-4">
+            <div
+              class="relative overflow-hidden rounded-xl bg-primary p-6 text-white shadow-lg"
+              data-dashboard-highlight
+            ></div>
+            <div class="rounded-xl bg-secondary-container p-6">
+              <span
+                class="mb-2 block text-[10px] font-extrabold uppercase tracking-widest text-on-secondary-container/70"
+              >
+                Wrapper Stack
+              </span>
+              <h4 class="text-lg font-bold text-on-secondary-container">
+                HTML, CSS, JS, XML, Servlets, JDBC, and MySQL
+              </h4>
+              <p class="mt-2 text-sm text-on-secondary-container/80">
+                GitHub Pages hosts this static preview. The full project uses
+                Java Servlets, Tomcat, JDBC, XML, and MySQL in the main runtime.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="rounded-xl border border-transparent bg-surface-container-lowest shadow-sm">
+          <div class="flex items-center justify-between bg-surface-container-low px-6 py-4">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-primary">campaign</span>
+              <h3 class="text-lg font-bold text-primary">Announcements</h3>
+            </div>
+            <span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+              Academic updates
+            </span>
+          </div>
+          <div class="grid gap-4 p-6 md:grid-cols-3" data-dashboard-announcement-list></div>
+        </section>
+      </div>
+    </main>
+
+    <div
+      class="fixed bottom-0 left-0 z-50 flex h-16 w-full items-center justify-around bg-white px-2 shadow-[0_-4px_10px_rgba(0,0,0,0.05)] md:hidden"
+    >
+      <a class="flex flex-col items-center gap-1 text-primary" href="dashboard.html">
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">
+          dashboard
+        </span>
+        <span class="text-[10px] font-bold">Home</span>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-on-surface-variant" href="marks.html">
+        <span class="material-symbols-outlined">school</span>
+        <span class="text-[10px] font-medium">Grades</span>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-on-surface-variant" href="attendance.html">
+        <span class="material-symbols-outlined">fact_check</span>
+        <span class="text-[10px] font-medium">Attendance</span>
+      </a>
+      <button class="flex flex-col items-center gap-1 text-on-surface-variant" type="button" data-logout>
+        <span class="material-symbols-outlined">logout</span>
+        <span class="text-[10px] font-medium">Logout</span>
+      </button>
+    </div>
+  </body>
+</html>
+

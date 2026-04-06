@@ -1,0 +1,567 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>G-Learn | Courses and Grades</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-background": "#191c1d",
+              "primary-container": "#006666",
+              "secondary-fixed": "#cbe7f5",
+              "surface-variant": "#e1e3e4",
+              "on-surface-variant": "#3f4948",
+              "on-secondary-fixed": "#021f29",
+              "surface-container": "#eceeef",
+              "surface-container-highest": "#e1e3e4",
+              "on-tertiary-container": "#ffc8a4",
+              "on-error": "#ffffff",
+              "tertiary-container": "#8f4800",
+              "primary-fixed-dim": "#86d4d3",
+              "inverse-surface": "#2e3132",
+              "surface-dim": "#d8dadb",
+              "tertiary-fixed-dim": "#ffb783",
+              "on-tertiary": "#ffffff",
+              "on-surface": "#191c1d",
+              "on-primary-container": "#93e1e0",
+              "on-tertiary-fixed-variant": "#713700",
+              "surface-container-high": "#e6e8e9",
+              "inverse-on-surface": "#eff1f2",
+              primary: "#004c4c",
+              "on-secondary-fixed-variant": "#304a55",
+              "on-secondary-container": "#4e6874",
+              tertiary: "#6c3500",
+              "on-tertiary-fixed": "#301400",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#ffdcc5",
+              "outline-variant": "#bec9c8",
+              "secondary-container": "#cbe7f5",
+              "inverse-primary": "#86d4d3",
+              "surface-tint": "#096969",
+              "error-container": "#ffdad6",
+              secondary: "#48626e",
+              "surface-container-lowest": "#ffffff",
+              error: "#ba1a1a",
+              "on-primary-fixed": "#002020",
+              background: "#f8fafb",
+              outline: "#6f7979",
+              "surface-container-low": "#f2f4f5",
+              surface: "#f8fafb",
+              "secondary-fixed-dim": "#afcbd8",
+              "on-error-container": "#93000a",
+              "on-primary-fixed-variant": "#004f4f",
+              "on-secondary": "#ffffff",
+              "primary-fixed": "#a2f0ef",
+              "surface-bright": "#f8fafb",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f8fafb;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Manrope", sans-serif;
+      }
+
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+        vertical-align: middle;
+      }
+    </style>
+    <script src="js/demo.js" defer></script>
+  </head>
+  <body class="bg-background text-on-surface" data-page="marks">
+    <header
+      class="fixed left-0 top-0 z-50 flex h-16 w-full items-center justify-between bg-teal-800 px-6 shadow-sm transition-all duration-200"
+    >
+      <div class="flex items-center gap-8">
+        <div class="flex items-start gap-3">
+          <img
+            src="university_logo.png"
+            alt="GITAM logo"
+            class="mt-0.5 h-9 w-9 object-contain"
+          />
+          <span class="mt-1 text-xl font-bold tracking-tight text-white">G-Learn</span>
+        </div>
+        <div
+          class="hidden w-64 items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 md:flex"
+        >
+          <span class="material-symbols-outlined text-sm text-white/70">search</span>
+          <input
+            class="w-full border-none bg-transparent text-sm text-white placeholder:text-white/50 focus:ring-0"
+            placeholder="Search courses..."
+            type="text"
+          />
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="hidden items-center gap-6 px-4 md:flex">
+          <a
+            class="rounded px-3 py-1 text-teal-100/80 transition-colors hover:bg-white/10"
+            href="dashboard.html"
+          >
+            Dashboard
+          </a>
+          <a class="border-b-2 border-white px-3 pb-1 text-white transition-colors" href="marks.html">
+            Grades
+          </a>
+          <a
+            class="rounded px-3 py-1 text-teal-100/80 transition-colors hover:bg-white/10"
+            href="attendance.html"
+          >
+            Attendance
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a class="rounded-full p-2 text-teal-50 hover:bg-white/10" href="attendance.html">
+            <span class="material-symbols-outlined">timer</span>
+          </a>
+          <button
+            class="rounded-full p-2 text-teal-50 hover:bg-white/10"
+            type="button"
+            data-logout
+            aria-label="Log out"
+          >
+            <span class="material-symbols-outlined">logout</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <aside
+      class="fixed left-0 top-16 z-40 hidden h-[calc(100vh-64px)] w-64 flex-col border-r border-slate-200 bg-slate-50 p-4 md:flex"
+    >
+      <div class="mb-8 px-4">
+        <h2 class="text-lg font-extrabold text-teal-800">CATS/GITAM</h2>
+        <p class="text-xs font-medium uppercase tracking-wide text-slate-500">
+          Academic Portal
+        </p>
+      </div>
+      <nav class="space-y-1">
+        <a
+          class="flex items-center gap-3 rounded-lg px-4 py-3 text-slate-600 transition-all hover:bg-slate-200 hover:text-teal-700"
+          href="dashboard.html"
+        >
+          <span class="material-symbols-outlined text-xl">dashboard</span>
+          <span class="text-sm font-semibold">Dashboard</span>
+        </a>
+        <a
+          class="translate-x-1 rounded-lg bg-teal-100 px-4 py-3 font-bold text-teal-800 transition-transform"
+          href="marks.html"
+        >
+          <span class="material-symbols-outlined mr-3 text-xl" style="font-variation-settings: 'FILL' 1;">
+            school
+          </span>
+          <span class="text-sm font-semibold">My Courses</span>
+        </a>
+        <a
+          class="flex items-center gap-3 rounded-lg px-4 py-3 text-slate-600 transition-all hover:bg-slate-200 hover:text-teal-700"
+          href="attendance.html"
+        >
+          <span class="material-symbols-outlined text-xl">fact_check</span>
+          <span class="text-sm font-semibold">Attendance</span>
+        </a>
+      </nav>
+      <div class="mt-auto rounded-xl bg-surface-container-low p-4">
+        <div class="flex items-center gap-3">
+          <div
+            class="flex h-10 w-10 items-center justify-center rounded-full bg-teal-100 text-teal-800"
+          >
+            <span class="material-symbols-outlined">account_circle</span>
+          </div>
+          <div>
+            <p class="text-xs font-bold text-on-surface js-user-name">Student</p>
+            <p class="text-[10px] text-on-surface-variant">
+              ID: <span class="js-username">student1</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="min-h-screen bg-surface-container-low pb-24 pt-16 md:pl-64">
+      <div class="mx-auto max-w-7xl p-6 md:p-8">
+        <div class="mb-8">
+          <div class="mb-3 flex items-center gap-2 text-xs font-medium text-on-surface-variant">
+            <span>Courses</span>
+            <span class="material-symbols-outlined text-sm">chevron_right</span>
+            <span class="js-current-semester">Current Semester</span>
+            <span class="material-symbols-outlined text-sm">chevron_right</span>
+            <span class="font-bold text-primary">Continuous Evaluation</span>
+          </div>
+          <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+            <div>
+              <h1 class="text-3xl font-extrabold tracking-tight text-primary">
+                Courses and Grades
+              </h1>
+              <p class="mt-1 font-medium text-on-surface-variant">
+                Detailed report for <span class="js-user-name">Student</span> |
+                <span class="js-department">Computer Science</span>
+              </p>
+            </div>
+            <div class="flex items-center gap-3">
+              <a
+                class="flex items-center gap-2 rounded-xl border border-primary/10 bg-white px-4 py-2 text-sm font-bold text-primary shadow-sm transition-colors hover:bg-teal-50"
+                href="attendance.html"
+              >
+                <span class="material-symbols-outlined text-lg">fact_check</span>
+                View Attendance
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-8 grid grid-cols-1 gap-6 md:grid-cols-4">
+          <div
+            class="flex flex-col justify-between rounded-xl border border-transparent bg-surface-container-lowest p-6 shadow-sm"
+          >
+            <div class="flex items-start justify-between">
+              <span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                Overall Grade
+              </span>
+              <div class="rounded-lg bg-primary/10 p-2">
+                <span class="material-symbols-outlined text-primary">grade</span>
+              </div>
+            </div>
+            <div class="mt-4">
+              <h3 class="text-4xl font-extrabold text-primary" data-marks-overall-grade>A+</h3>
+              <p class="mt-1 text-sm font-medium text-on-surface-variant" data-marks-overall-caption>
+                Excellent performance
+              </p>
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-transparent bg-surface-container-lowest p-6 shadow-sm">
+            <div class="mb-4 flex items-start justify-between">
+              <span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                Attendance
+              </span>
+              <span class="text-sm font-bold text-teal-600" data-marks-attendance-value>92%</span>
+            </div>
+            <div class="h-2 w-full overflow-hidden rounded-full bg-surface-container">
+              <div
+                class="h-full rounded-full bg-primary"
+                data-marks-attendance-bar
+                style="width: 92%;"
+              ></div>
+            </div>
+            <p
+              class="mt-3 text-[10px] leading-relaxed text-on-surface-variant"
+              data-marks-attendance-copy
+            >
+              Semester attendance is in a safe range.
+            </p>
+          </div>
+
+          <div class="relative overflow-hidden rounded-xl bg-primary p-6 text-white shadow-lg md:col-span-2">
+            <div class="relative z-10 flex h-full items-center justify-between">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-white/70">
+                  Semester Score Average
+                </span>
+                <div class="mt-2 flex items-baseline gap-1">
+                  <span class="text-5xl font-extrabold tracking-tighter" data-marks-average-total>
+                    84.5
+                  </span>
+                  <span class="text-xl font-medium text-white/50">/ 100</span>
+                </div>
+                <p class="mt-2 text-sm text-white/80" data-marks-average-caption>
+                  CGPA and SGPA summary
+                </p>
+              </div>
+              <div class="hidden sm:block">
+                <span
+                  class="material-symbols-outlined text-7xl text-white/10"
+                  style="font-variation-settings: 'FILL' 1;"
+                >
+                  analytics
+                </span>
+              </div>
+            </div>
+            <div class="absolute -bottom-10 -right-10 h-48 w-48 rounded-full bg-teal-600/30 blur-3xl"></div>
+          </div>
+        </div>
+
+        <section class="mb-8 overflow-hidden rounded-xl border border-transparent bg-surface-container-lowest shadow-sm">
+          <div class="flex items-center justify-between bg-secondary px-6 py-4">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-white">edit_note</span>
+              <h3 class="text-lg font-bold text-white">Marks Update</h3>
+            </div>
+            <span class="rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white">
+              Pages Demo
+            </span>
+          </div>
+          <div class="p-6">
+            <div class="hidden mb-5 rounded-xl px-4 py-3 text-sm font-medium" data-marks-message></div>
+            <form class="grid gap-4 md:grid-cols-4" data-marks-form>
+              <label class="block">
+                <span class="mb-2 block text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                  Course
+                </span>
+                <select
+                  class="w-full rounded-xl border border-outline-variant bg-white px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-primary"
+                  name="courseId"
+                  data-marks-course
+                  required
+                ></select>
+              </label>
+              <label class="block">
+                <span class="mb-2 block text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                  Assignment / 20
+                </span>
+                <input
+                  class="w-full rounded-xl border border-outline-variant px-4 py-3 text-sm focus:border-primary focus:ring-primary"
+                  type="number"
+                  name="assignmentMark"
+                  min="0"
+                  max="20"
+                  step="0.01"
+                  required
+                />
+              </label>
+              <label class="block">
+                <span class="mb-2 block text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                  Midterm / 30
+                </span>
+                <input
+                  class="w-full rounded-xl border border-outline-variant px-4 py-3 text-sm focus:border-primary focus:ring-primary"
+                  type="number"
+                  name="midtermMark"
+                  min="0"
+                  max="30"
+                  step="0.01"
+                  required
+                />
+              </label>
+              <label class="block">
+                <span class="mb-2 block text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                  Final / 50
+                </span>
+                <input
+                  class="w-full rounded-xl border border-outline-variant px-4 py-3 text-sm focus:border-primary focus:ring-primary"
+                  type="number"
+                  name="finalMark"
+                  min="0"
+                  max="50"
+                  step="0.01"
+                  required
+                />
+              </label>
+              <div class="md:col-span-4">
+                <button
+                  class="flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-white shadow-lg shadow-primary/20 transition-colors hover:bg-primary-container"
+                  type="submit"
+                >
+                  <span class="material-symbols-outlined text-lg">save</span>
+                  Update Marks Record
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <div class="space-y-8">
+          <div class="overflow-hidden rounded-xl border border-transparent bg-surface-container-lowest shadow-sm">
+            <div class="flex items-center justify-between bg-primary-container px-6 py-4">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-white">draw</span>
+                <h3 class="text-lg font-bold text-white">Assignment Components</h3>
+              </div>
+              <span class="rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white">
+                Weightage: 20%
+              </span>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full border-separate border-spacing-0 text-left">
+                <thead>
+                  <tr class="border-b bg-surface-container-low">
+                    <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                      Course
+                    </th>
+                    <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                      Faculty &amp; Schedule
+                    </th>
+                    <th class="px-6 py-4 text-center text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                      Max Marks
+                    </th>
+                    <th class="px-6 py-4 text-center text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                      Obtained
+                    </th>
+                    <th class="px-6 py-4 text-right text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                      Status
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-surface-container" data-marks-assignment-body></tbody>
+                <tfoot>
+                  <tr class="bg-surface-container-low">
+                    <td
+                      class="px-6 py-4 text-right text-xs font-bold text-on-surface-variant"
+                      colspan="2"
+                    >
+                      ASSIGNMENT AVERAGE
+                    </td>
+                    <td class="px-6 py-4 text-center text-sm font-bold">20.00</td>
+                    <td
+                      class="px-6 py-4 text-center text-sm font-black text-primary"
+                      data-marks-assignment-average
+                    >
+                      18.00
+                    </td>
+                    <td></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+
+          <div class="overflow-hidden rounded-xl border border-transparent bg-surface-container-lowest shadow-sm">
+            <div class="flex items-center justify-between bg-tertiary px-6 py-4">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-white">quiz</span>
+                <h3 class="text-lg font-bold text-white">Course Results</h3>
+              </div>
+              <span class="rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white">
+                Semester totals
+              </span>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full border-separate border-spacing-0 text-left">
+                <thead>
+                  <tr class="border-b bg-surface-container-low">
+                    <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                      Course Name
+                    </th>
+                    <th class="px-6 py-4 text-center text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                      Midterm
+                    </th>
+                    <th class="px-6 py-4 text-center text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                      Final
+                    </th>
+                    <th class="px-6 py-4 text-center text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                      Total
+                    </th>
+                    <th class="px-6 py-4 text-center text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                      Grade
+                    </th>
+                    <th class="px-6 py-4 text-right text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                      Credits
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-surface-container" data-marks-results-body></tbody>
+                <tfoot>
+                  <tr class="bg-surface-container-low">
+                    <td class="px-6 py-4 text-right text-xs font-bold text-on-surface-variant">
+                      SEMESTER AVERAGE
+                    </td>
+                    <td class="px-6 py-4 text-center text-sm font-bold">/30</td>
+                    <td class="px-6 py-4 text-center text-sm font-bold">/50</td>
+                    <td
+                      class="px-6 py-4 text-center text-sm font-black text-tertiary"
+                      data-marks-results-average
+                    >
+                      84.00
+                    </td>
+                    <td class="px-6 py-4 text-center text-sm font-black text-tertiary" data-marks-results-grade>
+                      A
+                    </td>
+                    <td></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <div class="rounded-xl border border-outline-variant/20 bg-surface-container-low p-6 md:col-span-2">
+              <h4 class="mb-4 flex items-center gap-2 text-sm font-bold text-primary">
+                <span class="material-symbols-outlined text-lg">info</span>
+                Performance Insight
+              </h4>
+              <div data-marks-best-course></div>
+            </div>
+            <div class="flex flex-col justify-center rounded-xl bg-secondary-container p-6">
+              <span
+                class="mb-2 text-[10px] font-extrabold uppercase tracking-widest text-on-secondary-container/70"
+              >
+                Next Milestone
+              </span>
+              <h4 class="text-lg font-bold text-on-secondary-container">
+                Internal Assessment Review
+              </h4>
+              <p class="mt-2 text-2xl font-black text-on-secondary-container">
+                Keep all courses above B+
+              </p>
+              <a
+                class="mt-4 w-full rounded-lg bg-primary py-2 text-center text-xs font-bold text-white shadow-md"
+                href="attendance.html"
+              >
+                CHECK ATTENDANCE
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div
+      class="fixed bottom-0 left-0 z-50 flex h-16 w-full items-center justify-around bg-white px-2 shadow-[0_-4px_10px_rgba(0,0,0,0.05)] md:hidden"
+    >
+      <a class="flex flex-col items-center gap-1 text-on-surface-variant" href="dashboard.html">
+        <span class="material-symbols-outlined">dashboard</span>
+        <span class="text-[10px] font-medium">Home</span>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-primary" href="marks.html">
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">
+          school
+        </span>
+        <span class="text-[10px] font-bold">Courses</span>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-on-surface-variant" href="attendance.html">
+        <span class="material-symbols-outlined">fact_check</span>
+        <span class="text-[10px] font-medium">Attendance</span>
+      </a>
+      <button class="flex flex-col items-center gap-1 text-on-surface-variant" type="button" data-logout>
+        <span class="material-symbols-outlined">logout</span>
+        <span class="text-[10px] font-medium">Logout</span>
+      </button>
+    </div>
+  </body>
+</html>
+

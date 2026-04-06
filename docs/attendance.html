@@ -1,0 +1,405 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>G-Learn | Attendance</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-background": "#191c1d",
+              "primary-container": "#006666",
+              "secondary-fixed": "#cbe7f5",
+              "surface-variant": "#e1e3e4",
+              "on-surface-variant": "#3f4948",
+              "on-secondary-fixed": "#021f29",
+              "surface-container": "#eceeef",
+              "surface-container-highest": "#e1e3e4",
+              "on-tertiary-container": "#ffc8a4",
+              "on-error": "#ffffff",
+              "tertiary-container": "#8f4800",
+              "primary-fixed-dim": "#86d4d3",
+              "inverse-surface": "#2e3132",
+              "surface-dim": "#d8dadb",
+              "tertiary-fixed-dim": "#ffb783",
+              "on-tertiary": "#ffffff",
+              "on-surface": "#191c1d",
+              "on-primary-container": "#93e1e0",
+              "on-tertiary-fixed-variant": "#713700",
+              "surface-container-high": "#e6e8e9",
+              "inverse-on-surface": "#eff1f2",
+              primary: "#004c4c",
+              "on-secondary-fixed-variant": "#304a55",
+              "on-secondary-container": "#4e6874",
+              tertiary: "#6c3500",
+              "on-tertiary-fixed": "#301400",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#ffdcc5",
+              "outline-variant": "#bec9c8",
+              "secondary-container": "#cbe7f5",
+              "inverse-primary": "#86d4d3",
+              "surface-tint": "#096969",
+              "error-container": "#ffdad6",
+              secondary: "#48626e",
+              "surface-container-lowest": "#ffffff",
+              error: "#ba1a1a",
+              "on-primary-fixed": "#002020",
+              background: "#f8fafb",
+              outline: "#6f7979",
+              "surface-container-low": "#f2f4f5",
+              surface: "#f8fafb",
+              "secondary-fixed-dim": "#afcbd8",
+              "on-error-container": "#93000a",
+              "on-primary-fixed-variant": "#004f4f",
+              "on-secondary": "#ffffff",
+              "primary-fixed": "#a2f0ef",
+              "surface-bright": "#f8fafb",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      .font-headline {
+        font-family: "Manrope", sans-serif;
+      }
+
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+    <script src="js/demo.js" defer></script>
+  </head>
+  <body class="bg-surface text-on-surface" data-page="attendance">
+    <header class="fixed left-0 top-0 z-50 flex h-16 w-full items-center justify-between bg-teal-800 px-6 shadow-sm">
+      <div class="flex items-center gap-8">
+        <div class="flex items-start gap-3">
+          <img
+            src="university_logo.png"
+            alt="GITAM logo"
+            class="mt-0.5 h-9 w-9 object-contain"
+          />
+          <span class="mt-1 font-headline text-xl font-bold tracking-tight text-white">G-Learn</span>
+        </div>
+        <div class="hidden items-center gap-3 rounded-full bg-white/10 px-4 py-1.5 md:flex">
+          <span class="material-symbols-outlined text-sm text-teal-50">search</span>
+          <input
+            class="w-64 border-none bg-transparent text-sm text-teal-50 placeholder:text-teal-100/50 focus:ring-0"
+            placeholder="Search courses..."
+            type="text"
+          />
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <a
+          class="flex items-center gap-2 rounded-full p-2 text-teal-50 transition-colors hover:bg-white/10"
+          href="marks.html"
+        >
+          <span class="material-symbols-outlined">analytics</span>
+          <span class="hidden text-xs font-medium md:inline">Grades</span>
+        </a>
+        <button
+          class="rounded-full p-2 text-teal-50 transition-colors hover:bg-white/10"
+          type="button"
+          data-logout
+          aria-label="Log out"
+        >
+          <span class="material-symbols-outlined">logout</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="flex pt-16">
+      <aside
+        class="fixed left-0 top-16 hidden h-[calc(100vh-64px)] w-64 flex-col overflow-y-auto border-r border-slate-200 bg-slate-50 p-4 md:flex"
+      >
+        <div class="mb-8 px-4">
+          <h2 class="font-headline text-lg font-extrabold text-teal-800">CATS/GITAM</h2>
+          <p class="font-label text-xs uppercase tracking-widest text-slate-500">
+            Academic Portal
+          </p>
+        </div>
+        <nav class="space-y-1">
+          <a
+            class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm text-slate-600 transition-colors hover:bg-slate-200 hover:text-teal-700"
+            href="dashboard.html"
+          >
+            <span class="material-symbols-outlined">dashboard</span>
+            <span>Dashboard</span>
+          </a>
+          <a
+            class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm text-slate-600 transition-colors hover:bg-slate-200 hover:text-teal-700"
+            href="marks.html"
+          >
+            <span class="material-symbols-outlined">school</span>
+            <span>My Courses</span>
+          </a>
+          <a
+            class="translate-x-1 rounded-lg bg-teal-100 px-4 py-3 text-sm font-bold text-teal-800 transition-transform"
+            href="attendance.html"
+          >
+            <span class="material-symbols-outlined mr-3">fact_check</span>
+            <span>Attendance</span>
+          </a>
+        </nav>
+        <div class="mt-auto rounded-xl bg-surface-container-high p-4">
+          <p class="mb-2 text-xs text-on-surface-variant">Need help?</p>
+          <button class="w-full rounded-lg bg-primary py-2 text-xs font-bold text-on-primary" type="button" data-logout>
+            Contact Support / Logout
+          </button>
+        </div>
+      </aside>
+
+      <main class="ml-0 min-h-screen flex-1 p-6 pb-24 md:ml-64 md:p-8">
+        <header class="mb-10">
+          <h1 class="font-headline text-4xl font-extrabold tracking-tight text-on-surface">
+            Attendance Record
+          </h1>
+          <p class="mt-2 font-label text-on-surface-variant">
+            <span class="js-current-semester">Current Semester</span> |
+            <span class="js-user-name">Student</span> |
+            <span class="js-department">Computer Science</span>
+          </p>
+        </header>
+
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
+          <div class="space-y-6 lg:col-span-8">
+            <div class="overflow-hidden rounded-xl border border-surface-container bg-surface-container-lowest shadow-sm">
+              <div class="flex items-center justify-between bg-surface-container-low px-6 py-4">
+                <h3 class="font-headline font-bold text-primary">Course wise percentage</h3>
+                <a class="flex items-center gap-1 text-xs text-primary hover:underline" href="marks.html">
+                  <span class="material-symbols-outlined text-sm">analytics</span>
+                  View Marks
+                </a>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full border-collapse text-left">
+                  <thead>
+                    <tr class="bg-surface-container text-xs font-bold uppercase tracking-wider text-on-surface-variant">
+                      <th class="px-6 py-4">Course Name</th>
+                      <th class="px-6 py-4">Status</th>
+                      <th class="w-48 px-6 py-4">Progress</th>
+                      <th class="px-6 py-4 text-right">Percentage</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-surface-container-high" data-attendance-body></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="overflow-hidden rounded-xl border border-surface-container bg-surface-container-lowest shadow-sm">
+              <div class="flex items-center justify-between bg-primary-container px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-white">edit_calendar</span>
+                  <h3 class="font-headline text-lg font-bold text-white">Attendance Update</h3>
+                </div>
+                <span class="rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white">
+                  Pages Demo
+                </span>
+              </div>
+              <div class="p-6">
+                <div class="mb-5 hidden rounded-xl px-4 py-3 text-sm font-medium" data-attendance-message></div>
+                <form class="grid gap-4 md:grid-cols-3" data-attendance-form>
+                  <label class="block">
+                    <span class="mb-2 block text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                      Course
+                    </span>
+                    <select
+                      class="w-full rounded-xl border border-outline-variant bg-white px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-primary"
+                      name="courseId"
+                      data-attendance-course
+                      required
+                    ></select>
+                  </label>
+                  <label class="block">
+                    <span class="mb-2 block text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                      Attendance Percentage
+                    </span>
+                    <input
+                      class="w-full rounded-xl border border-outline-variant px-4 py-3 text-sm focus:border-primary focus:ring-primary"
+                      type="number"
+                      name="attendancePercentage"
+                      min="0"
+                      max="100"
+                      step="0.01"
+                      required
+                    />
+                  </label>
+                  <div class="flex items-end">
+                    <button
+                      class="w-full rounded-xl bg-primary px-5 py-3 text-sm font-bold text-white shadow-lg shadow-primary/20 transition-colors hover:bg-primary-container"
+                      type="submit"
+                    >
+                      Update Attendance
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-6 lg:col-span-4">
+            <div
+              class="relative flex h-full flex-col items-center justify-center overflow-hidden rounded-xl border border-surface-container bg-surface-container-lowest p-8 shadow-sm"
+            >
+              <div class="pointer-events-none absolute inset-0 opacity-5">
+                <div class="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-primary blur-3xl"></div>
+                <div class="absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-tertiary blur-3xl"></div>
+              </div>
+              <h3 class="font-headline relative z-10 mb-8 text-center text-on-surface font-extrabold">
+                Semester wise percentage
+              </h3>
+              <div class="relative mb-8 flex h-56 w-56 items-center justify-center">
+                <svg class="h-full w-full -rotate-90 transform">
+                  <circle
+                    class="text-surface-variant"
+                    cx="112"
+                    cy="112"
+                    fill="transparent"
+                    r="100"
+                    stroke="currentColor"
+                    stroke-width="14"
+                  ></circle>
+                  <circle
+                    class="text-primary transition-all duration-1000 ease-out"
+                    cx="112"
+                    cy="112"
+                    fill="transparent"
+                    r="100"
+                    stroke="currentColor"
+                    stroke-dasharray="628.3"
+                    stroke-dashoffset="135.3"
+                    stroke-width="14"
+                    data-attendance-gauge
+                  ></circle>
+                </svg>
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                  <span
+                    class="font-headline text-4xl font-extrabold tracking-tighter text-primary"
+                    data-attendance-overall
+                  >
+                    78.46%
+                  </span>
+                  <span class="mt-1 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
+                    Aggregate
+                  </span>
+                </div>
+              </div>
+              <div class="relative z-10 grid w-full grid-cols-2 gap-4">
+                <div class="rounded-lg bg-surface-container-low p-3 text-center">
+                  <span class="mb-1 block text-[10px] font-bold uppercase text-on-surface-variant">
+                    Courses Tracked
+                  </span>
+                  <span
+                    class="block font-headline text-xl font-bold text-on-surface"
+                    data-attendance-course-count
+                  >
+                    4
+                  </span>
+                </div>
+                <div class="rounded-lg bg-surface-container-low p-3 text-center">
+                  <span class="mb-1 block text-[10px] font-bold uppercase text-on-surface-variant">
+                    Above 75%
+                  </span>
+                  <span
+                    class="block font-headline text-xl font-bold text-primary"
+                    data-attendance-good-count
+                  >
+                    3
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div class="flex items-center gap-4 rounded-xl border border-surface-container-high bg-surface-container-lowest p-6">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-secondary-container text-primary">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">
+                event_available
+              </span>
+            </div>
+            <div>
+              <p class="text-xs font-bold uppercase text-on-surface-variant">Best Course</p>
+              <p class="font-headline text-lg font-bold" data-attendance-best-course>WAD401</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 rounded-xl border border-surface-container-high bg-surface-container-lowest p-6">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-tertiary-fixed text-tertiary">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">
+                warning
+              </span>
+            </div>
+            <div>
+              <p class="text-xs font-bold uppercase text-on-surface-variant">Critical Alerts</p>
+              <p class="font-headline text-lg font-bold" data-attendance-alert-count>1 Course Below 75%</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 rounded-xl border border-surface-container-high bg-surface-container-lowest p-6">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary-fixed text-primary">
+              <span class="material-symbols-outlined">trending_up</span>
+            </div>
+            <div>
+              <p class="text-xs font-bold uppercase text-on-surface-variant">Overall Trend</p>
+              <p class="font-headline text-lg font-bold text-primary" data-attendance-semester-copy>
+                Current semester tracking
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div
+      class="fixed bottom-0 left-0 z-50 flex h-16 w-full items-center justify-around bg-white px-2 shadow-[0_-4px_10px_rgba(0,0,0,0.05)] md:hidden"
+    >
+      <a class="flex flex-col items-center gap-1 text-on-surface-variant" href="dashboard.html">
+        <span class="material-symbols-outlined">dashboard</span>
+        <span class="text-[10px] font-medium">Home</span>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-on-surface-variant" href="marks.html">
+        <span class="material-symbols-outlined">school</span>
+        <span class="text-[10px] font-medium">Grades</span>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-primary" href="attendance.html">
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">
+          fact_check
+        </span>
+        <span class="text-[10px] font-bold">Attendance</span>
+      </a>
+      <button class="flex flex-col items-center gap-1 text-on-surface-variant" type="button" data-logout>
+        <span class="material-symbols-outlined">logout</span>
+        <span class="text-[10px] font-medium">Logout</span>
+      </button>
+    </div>
+  </body>
+</html>
+
