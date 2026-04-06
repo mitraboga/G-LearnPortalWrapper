@@ -1,4 +1,4 @@
-<h1 align="center">🎓 GLearnPortalWrapper 📔</h1>
+<h1 align="center">🎓 G-LearnPortalWrapper 📔</h1>
 <h3 align="center">Full-Stack Academic Portal System • Grades • Attendance • Authentication</h3>
 
 <p align="center">
