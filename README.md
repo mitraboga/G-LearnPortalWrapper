@@ -92,6 +92,61 @@ Database (MySQL via JDBC)
 
 ---
 
+## Run Locally
+1. Ensure MySQL is running.
+2. From the project root, run:
+```powershell
+.\run-java-app.bat
+```
+3. Open:
+```text
+http://localhost:500/
+```
+## GitHub Pages Demo
+The repository also includes a static GitHub Pages build in `docs/`. This is a frontend demo of the same portal UI and flows using browser local storage, because GitHub Pages does not run Java/Tomcat/MySQL backends.
+Expected Pages URL after deployment:
+```text
+https://mitraboga.github.io/G-LearnPortalWrapper/
+```
+## Main Application Paths
+- `src/main/java`
+- `src/main/webapp`
+- `src/main/webapp/WEB-INF/web.xml`
+- `docs`
+- `.github/workflows/deploy-pages.yml`
+
+---
+
+## 🚀 Future Scope
+
+- Faculty dashboards  
+- Role-based access  
+- Real-time notifications  
+- Cloud deployment  
+- REST APIs (JSON-based)  
+
+---
+
+## 🛠️ How to Run
+
+```bash
+git clone https://github.com/your-username/GLearnPortalWrapper.git
+cd GLearnPortalWrapper
+```
+
+### Setup
+- Configure MySQL database (`studentsdb`)
+- Update JDBC credentials
+
+### Run
+- Deploy on Apache Tomcat  
+- Open:
+```
+http://localhost:8080/
+```
+
+---
+
 ## 🔥 How the Web App Works (End-to-End Flow)
 
 ### 1️⃣ User Registration
@@ -209,36 +264,6 @@ Database (MySQL via JDBC)
 - JDBC gives direct DB control  
 - MySQL is ideal for structured systems  
 - XML still useful in Java ecosystems  
-
----
-
-## 🚀 Future Scope
-
-- Faculty dashboards  
-- Role-based access  
-- Real-time notifications  
-- Cloud deployment  
-- REST APIs (JSON-based)  
-
----
-
-## 🛠️ How to Run
-
-```bash
-git clone https://github.com/your-username/GLearnPortalWrapper.git
-cd GLearnPortalWrapper
-```
-
-### Setup
-- Configure MySQL database (`studentsdb`)
-- Update JDBC credentials
-
-### Run
-- Deploy on Apache Tomcat  
-- Open:
-```
-http://localhost:8080/
-```
 
 ---
 
